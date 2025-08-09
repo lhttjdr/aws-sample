@@ -1,6 +1,3 @@
-pnpm run deploy:safe
-pnpm run test:safe
-
 # Apache Iceberg データレイクプロジェクト
 
 AWS CDK を基盤とした Apache Iceberg データレイクソリューション。ACID トランザクション、タイムトラベル、データマージなどのコア機能をデモンストレーションします。
