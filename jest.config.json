@@ -1,0 +1,57 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "roots": ["<rootDir>/test"],
+  "testMatch": ["**/*.test.ts"],
+  "transform": {
+    "^.+\\.ts$": ["ts-jest", {
+      "useESM": false,
+      "tsconfig": {
+        "module": "commonjs"
+      }
+    }]
+  },
+  "setupFilesAfterEnv": ["<rootDir>/test/jest.setup.js"],
+  "testSequencer": "<rootDir>/test/jest.sequencer.js",
+  "collectCoverageFrom": [
+    "lib/**/*.ts",
+    "test/**/*.ts",
+    "!**/*.d.ts"
+  ],
+  "verbose": true,
+  "testTimeout": 300000,
+  "maxWorkers": 1,
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+  "reporters": [
+    "default",
+    [
+      "jest-html-reporters",
+      {
+        "publicPath": "./test-reports",
+        "filename": "jest-report.html",
+        "pageTitle": "Iceberg CDK Test Report",
+        "openReport": false,
+        "expand": true,
+        "hideIcon": false,
+        "testCommand": "npm run test:sequential",
+        "logoImgPath": "",
+        "customInfos": [
+          {
+            "title": "Project",
+            "value": "Apache Iceberg CDK"
+          },
+          {
+            "title": "Environment",
+            "value": "Test"
+          }
+        ]
+      }
+    ]
+  ],
+  "coverageReporters": [
+    "text",
+    "lcov",
+    "html"
+  ],
+  "coverageDirectory": "test-reports/coverage"
+}
